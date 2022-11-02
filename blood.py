@@ -10,7 +10,9 @@ while True:
     print('3 search a donar')
     print('4 update a donar')
     print('5 delete a donar')
-    print('6 exit')
+    print('6 total blood donated')
+    print('7 Name of the doner with starting letter')
+    print('8 exit')
 
     choice = int(input('Enter an option: '))
     if(choice==1):
@@ -59,4 +61,10 @@ while True:
         mycursor.execute(sql)
         mydb.commit()
     elif(choice==6):
+        print('Total blood donated ')
+        sql = 'SELECT AVG(`total_blood_donated`) FROM `blood_donater` '
+        mycursor.execute(sql)
+        mydb.commit()
+
+    elif(choice==8):
         break
