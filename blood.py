@@ -43,12 +43,15 @@ while True:
         result = mycursor.fetchall()
         print(result)
     elif(choice==4):
-        print('update the student')
+        print('update the blood donater details')
+        blood_group = input('enter the blood group to be updated: ')
         name = input('enter the name: ')
         address = input('enter the address: ')
         phone = input('enter the phone number: ')
         total_blood_donated= input('enter the total blood donated: ')
-        #blood_group = input('enter the blood group: ')
+        sql = "UPDATE `blood_donater` SET `Name`='"+name+"',`Phone_number`='"+phone+"',`Address`='"+address+"',`total_blood_donated`='"+total_blood_donated+"',`blood_group`='"+blood_group+"' WHERE `blood_group`='"+blood_group+"'"
+        mycursor.execute(sql)
+        mydb.commit()
     elif(choice==5):
         print('delete the student')
     elif(choice==6):
