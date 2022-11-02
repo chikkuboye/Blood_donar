@@ -10,7 +10,7 @@ while True:
     print('3 search a donar')
     print('4 update a donar')
     print('5 delete a donar')
-    print('6 total blood donated')
+    print('6 Average blood donated')
     print('7 Name of the doner with starting letter')
     print('8 exit')
 
@@ -61,10 +61,17 @@ while True:
         mycursor.execute(sql)
         mydb.commit()
     elif(choice==6):
-        print('Total blood donated ')
+        print('Average blood donated ')
         sql = 'SELECT AVG(`total_blood_donated`) FROM `blood_donater` '
         mycursor.execute(sql)
-        mydb.commit()
-
+        result = mycursor.fetchall()
+        print(result)
+    elif(choice == 7):
+        print('Name of the doner with starting letter')
+        st = input('Enter the first letter of the name of the donar : ')
+        sql = "SELECT `id`, `Name`, `Phone_number`, `Address`, `total_blood_donated`, `blood_group` FROM `blood_donater` WHERE `Name` LIKE '%"+st+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        print(result)
     elif(choice==8):
         break
